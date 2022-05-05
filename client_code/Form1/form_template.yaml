@@ -29,7 +29,7 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'UULEIX,PIBMOD'}
   - type: Canvas
-    properties: {role: null, height: 517.5, tooltip: '', border: '', foreground: '',
+    properties: {role: null, height: 620, tooltip: '', border: '', foreground: '',
       visible: true, spacing_above: small, spacing_below: small, background: ''}
     name: canvas_1
     layout_properties: {grid_position: 'VGVVQU,YRENAV'}
@@ -44,3 +44,7 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+- type: Timer
+  properties: {interval: 9000}
+  name: timer_1
+  event_bindings: {tick: timer_1_tick}
