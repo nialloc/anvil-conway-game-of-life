@@ -29,7 +29,7 @@ components:
     name: spacer_1
     layout_properties: {grid_position: 'UULEIX,PIBMOD'}
   - type: Canvas
-    properties: {role: null, height: '', tooltip: '', border: '', foreground: '',
+    properties: {role: null, height: 517.5, tooltip: '', border: '', foreground: '',
       visible: true, spacing_above: small, spacing_below: small, background: ''}
     name: canvas_1
     layout_properties: {grid_position: 'VGVVQU,YRENAV'}

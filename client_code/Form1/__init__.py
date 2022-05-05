@@ -22,9 +22,7 @@ class Form1(Form1Template):
         
     def show_board(self):
         c = self.canvas_1
-#         c.width = 800
-        c.height = 160
-#         c.background = "#FF0000"
+        c.background = "#FFF000"
 
         for index,value in enumerate(self.board):
 
@@ -36,9 +34,11 @@ class Form1(Form1Template):
             width = self.width
             height = self.height
             if value == 1:
+                c.stroke_style("#FF0000")
                 c.fill_rect(x, y, width, height)
             else:
-                c.clear_rect(x, y, width, height)
+                c.stroke_style("#FFFFFF")
+                c.fill_rect(x, y, width, height)
     
     def button_2_click(self, **event_args):
         """This method is called when the button is clicked"""
