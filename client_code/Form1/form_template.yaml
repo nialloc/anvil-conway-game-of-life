@@ -4,9 +4,42 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
+  components:
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Reset, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: button_reset
+    layout_properties: {grid_position: 'OVRCYY,PQJUZO'}
+    event_bindings: {click: button_1_click}
+  - type: Button
+    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: Step, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: button_step
+    layout_properties: {grid_position: 'OVRCYY,VUNPQZ'}
+    event_bindings: {click: button_2_click}
+  - type: Spacer
+    properties: {height: 0}
+    name: spacer_1
+    layout_properties: {grid_position: 'UULEIX,PIBMOD'}
+  - type: Canvas
+    properties: {role: null, height: '', tooltip: '', border: '', foreground: '',
+      visible: true, spacing_above: small, spacing_below: small, background: ''}
+    name: canvas_1
+    layout_properties: {grid_position: 'VGVVQU,YRENAV'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Some text on a label, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {grid_position: 'MKAFLH,AALTBU'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
