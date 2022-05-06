@@ -20,6 +20,7 @@ class Form1(Form1Template):
         self.width = 16
         self.height = 16
         self.reset_board()
+        self.show_board()
         
     def show_board(self):
         c = self.canvas_1
@@ -41,21 +42,21 @@ class Form1(Form1Template):
 #                 c.fill_style("#FFFFFF")
                 c.clear_rect(x, y, width, height)
     
-    def button_2_click(self, **event_args):
+    def button_step_click(self, **event_args):
         """This method is called when the button is clicked"""
                 
         self.step_board()
         self.show_board()
 
-    def button_1_click(self, **event_args):
+    def button_reset_click(self, **event_args):
         """This method is called when the button is clicked"""
-        self.timer_1.interval = 0
         self.reset_board()
         self.show_board()
         
     def reset_board(self):
         self.board = [int(round(random.random())) for x in range(self.rows*self.cols)]
-       
+        self.timer_1.interval = 0
+        
     def step_board(self):
         new_board = [0 for x in range(len(self.board))]
         

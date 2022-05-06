@@ -15,7 +15,7 @@ components:
       underline: false, icon: ''}
     name: button_reset
     layout_properties: {grid_position: 'OVRCYY,PQJUZO'}
-    event_bindings: {click: button_1_click}
+    event_bindings: {click: button_click_reset}
   - type: Button
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
       foreground: '', visible: true, text: Start, font_size: null, font: '', spacing_above: small,
@@ -39,7 +39,7 @@ components:
       underline: false, icon: ''}
     name: button_step
     layout_properties: {grid_position: 'OVRCYY,VUNPQZ'}
-    event_bindings: {click: button_2_click}
+    event_bindings: {click: button_click_step}
   - type: Spacer
     properties: {height: 0}
     name: spacer_1
@@ -64,3 +64,10 @@ components:
   properties: {interval: 0.1}
   name: timer_1
   event_bindings: {tick: timer_1_tick}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Conway's Game of Life, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_2
+  layout_properties: {slot: title}
