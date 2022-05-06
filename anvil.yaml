@@ -1,20 +1,9 @@
 allow_embedding: false
 package_name: Conway
+startup: {type: form, module: Form2}
 name: Conway
-startup_form: Form1
-native_deps: {head_html: '
-
-    <script src="https://bossanova.uk/jspreadsheet/v4/jexcel.js"></script>
-
-    <script src="https://jsuites.net/v4/jsuites.js"></script>
-
-    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css"
-    />
-
-    <link rel="stylesheet" href="https://bossanova.uk/jspreadsheet/v4/jexcel.css"
-    type="text/css" />
-
-    '}
+startup_form: null
+native_deps: {head_html: '<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>'}
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 services:
 - source: /runtime/services/tables.yml
