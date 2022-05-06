@@ -11,11 +11,7 @@ allow_embedding: false
 name: Conway
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 startup_form: null
-native_deps: {head_html: "<script src=\"https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js\"\
-    ></script>\n<script>\nfunction InitialiseWeb3(){\n  \n  console.log(\"InitialiseWeb3\"\
-    )\n     \n\tvar web3 = new Web3(Web3.givenProvider);\n    web3.eth.requestAccounts().then();\n\
-    \    return web3.currentProvider.selectedAddress;\n}\n  \nfunction get_address(){\n\
-    \  return web3.currentProvider.selectedAddress;\n}\n</script>"}
+native_deps: {head_html: ''}
 secrets:
   HTTPProvider:
     value: {? '' : +meNlqPObWPlTgzS51K5bqjti89bUKurhJSBQ6MCICaqAnYq5a4fk3E+zEDhWthOt79T2qL/wj6RbRbc1jPJDtlnk7d6VAzNpk9K2FdL8jLLDIyyhSC3UMZIOGHbAPkr}

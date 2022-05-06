@@ -7,27 +7,13 @@ from anvil.tables import app_tables
 
 import anvil.js
 
-from anvil.js.window import document
-from anvil.js.window import Web3
+
 
 class Form2(Form2Template):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
-        x = anvil.server.call('say_hello')
-        print(x)
-        
-        # Any code you write here will run when the form opens.
-        web3 = Web3
-        
-        print("web3.version",Web3.version)
-        print("provider",Web3.givenProvider)
-        
-        print(web3.modules)
-        
-        print(web3.keys())
-        print(dir(web3))
-        address = anvil.js.call_js('InitialiseWeb3')
-        print(address)
+        data = anvil.server.call('get_data')
+        print('data',data)
            
