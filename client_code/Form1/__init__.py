@@ -59,6 +59,7 @@ class Form1(Form1Template):
         new_board = [0 for x in range(len(self.board))]
         
         def get(pos):
+            pos = pos % len(self.board)
             return self.board[pos]
         
         def set(pos,value):
@@ -70,8 +71,8 @@ class Form1(Form1Template):
             row = int(pos / self.cols)
         
             # ignore the edges for the mo
-            if col == 0 or col == self.cols-1 or row == 0 or row == self.rows-1:
-                continue
+#             if col == 0 or col == self.cols-1 or row == 0 or row == self.rows-1:
+#                 continue
                 
             count = 0
             
