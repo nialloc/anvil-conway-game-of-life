@@ -4,6 +4,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
+import anvil.js
+
 from anvil.js.window import document
 from anvil.js.window import Web3
 
@@ -21,11 +23,7 @@ class Form2(Form2Template):
         print(web3.modules)
         
         print(web3.keys())
-        
-        print(__dict__(web3))
-        
-        provider = "https://kovan.infura.io/v3/4470d0e5772346a598b9fa80a8d50e21"
-        
-        ret = web3.Eth.setProvider(provider)
-        print(ret)
-        
+        print(dir(web3))
+        address = anvil.js.call_js('InitialiseWeb3')
+        print(address)
+           
