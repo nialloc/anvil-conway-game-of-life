@@ -49,6 +49,7 @@ class Form1(Form1Template):
 
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
+        self.timer_1.interval = 0
         self.reset_board()
         self.show_board()
         
@@ -107,4 +108,14 @@ class Form1(Form1Template):
         """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
         self.step_board()
         self.show_board()
+
+    def button_stop_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        self.timer_1.interval = 0
+
+    def button_start_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        self.timer_1.interval = 0.1
+
+
 
