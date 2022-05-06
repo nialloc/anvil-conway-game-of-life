@@ -1,5 +1,6 @@
 from ._anvil_designer import Form2Template
 from anvil import *
+import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -14,6 +15,9 @@ class Form2(Form2Template):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
 
+        x = anvil.server.call('say_hello')
+        print(x)
+        
         # Any code you write here will run when the form opens.
         web3 = Web3
         

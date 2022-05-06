@@ -1,15 +1,22 @@
-allow_embedding: false
-package_name: Conway
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/secrets.yml
+  client_config: {}
+  server_config: {}
 startup: {type: form, module: Form2}
+package_name: Conway
+allow_embedding: false
 name: Conway
+runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 startup_form: null
 native_deps: {head_html: "<script src=\"https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js\"\
     ></script>\n<script>\nfunction InitialiseWeb3(){\n  \n  console.log(\"InitialiseWeb3\"\
     )\n     \n\tvar web3 = new Web3(Web3.givenProvider);\n    web3.eth.requestAccounts().then();\n\
     \    return web3.currentProvider.selectedAddress;\n}\n  \nfunction get_address(){\n\
     \  return web3.currentProvider.selectedAddress;\n}\n</script>"}
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-services:
-- source: /runtime/services/tables.yml
-  client_config: {}
-  server_config: {}
+secrets:
+  HTTPProvider:
+    value: {? '' : +meNlqPObWPlTgzS51K5bqjti89bUKurhJSBQ6MCICaqAnYq5a4fk3E+zEDhWthOt79T2qL/wj6RbRbc1jPJDtlnk7d6VAzNpk9K2FdL8jLLDIyyhSC3UMZIOGHbAPkr}
+    type: secret
