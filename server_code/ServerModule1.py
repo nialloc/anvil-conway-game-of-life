@@ -11,6 +11,10 @@ from web3.eth import Account
 
 import json
 
+rows = 32
+cols = 32
+
+
 @anvil.server.callable
 def get_data():
     
@@ -42,5 +46,23 @@ def get_data():
     cell4 = contract.functions.getCells().call()
     print("cells ", cell4)
     
-    return cell4
+    return generate_cells(cell4)
+
+
+def generate_cells(cell4):
+    cells = [0 for x in range(rows*cols)]
+    index = 0
+    for row in range(rows):
+        for col in range(cols):
+            pos = (col + row*cols) % (rows*cols)
+            i = int(pos / 256)
+            j = pos % 256
+            #print(row,col,pos,i,j,cells[i])
+            if (cell4[i] >> j) & 0x01:
+                cells[index] = 1
+            else:
+                cells[index] = 0
+
+            index += 1
+    return cells
     
