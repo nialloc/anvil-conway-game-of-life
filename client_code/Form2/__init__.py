@@ -12,8 +12,8 @@ class Form2(Form2Template):
 
         self.cols = 32
         self.rows = 32
-        self.width = 16
-        self.height = 16
+        self.cell_width = 16
+        self.cell_height = 16
         self.board = [0 for x in range(self.cols*self.rows)]
         print('ll')
            
@@ -32,10 +32,10 @@ class Form2(Form2Template):
             col = int(index % self.cols)
             row = int(index / self.cols)
             
-            x = col * self.width
-            y = row * self.width
-            width = self.width
-            height = self.height
+            x = col * self.cell_width
+            y = row * self.cell_height
+            width = self.cell_width
+            height = self.cell_height
             if value == 1:
 #                 c.fill_style("#FF0000")
                 c.fill_rect(x, y, width, height)

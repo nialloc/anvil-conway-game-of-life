@@ -17,8 +17,8 @@ class Form1(Form1Template):
         # Any code you write here will run when the form opens.
         self.rows = 32
         self.cols = 32
-        self.width = 16
-        self.height = 16
+        self.cell_width = 16
+        self.cell_height = 16
         self.reset_board()
         self.show_board()
         
@@ -31,10 +31,10 @@ class Form1(Form1Template):
             col = int(index % self.cols)
             row = int(index / self.cols)
             
-            x = col * self.width
-            y = row * self.width
-            width = self.width
-            height = self.height
+            x = col * self.cell_width
+            y = row * self.cell_height
+            width = self.cell_width
+            height = self.cell_height
             if value == 1:
 #                 c.fill_style("#FF0000")
                 c.fill_rect(x, y, width, height)
