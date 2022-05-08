@@ -44,12 +44,83 @@ contract = web3.eth.contract(
 @anvil.server.callable
 def get_data():
     
-       
     cell4 = contract.functions.getCells().call()
     print("cells ", cell4)
-    
     return generate_cells(cell4)
 
+def step():
+    
+    private_key = '?????'
+    print('private_key',private_key)
+
+    acct = Account.from_key(private_key)
+    caller_address = acct.address
+
+    print('caller_address',caller_address)
+
+    nonce = web3.eth.getTransactionCount(caller_address)
+    
+    chainId = 42 #Kovan - 42
+
+    gwei = 1_000_000_000
+    gasPrice = 1 * gwei
+
+    caller_balance0 = web3.eth.get_balance(caller_address)
+
+    gasPrice = Web3.toWei(1, 'gwei')
+
+    myblock = contract.functions.getMyBlock().call()
+
+    print('myblock',myblock)
+    
+    
+    # check when the last step was done
+    # compare to current block
+    # only execute the step if the time is greater than one minute
+    myblock = contract.functions.getMyBlock().call()
+    current = web3.eth.blockNumber
+
+    target  = myblock + GAP
+    print(f"current {current} target {target}")
+    
+    if current < target :
+        return jsonify({'code':f'current block is {current}, skipping until block {target}'})    
+
+    txn = contract.functions.step().buildTransaction(
+        {
+            'chainId' : chainId,
+            'nonce': nonce,
+            'gasPrice': gasPrice,
+        }
+    )
+    print('txn',txn)
+
+    
+    signed_txn = web3.eth.account.sign_transaction(
+        txn,
+        private_key=private_key
+    )
+
+    try: 
+        result = web3.eth.sendRawTransaction(signed_txn.rawTransaction)
+        print('result',result)
+        txn['status'] = 'ok'
+    except Exception as e:
+        print(type(e))
+        print(e)
+        txn = {'status':str(e)}
+
+    response = txn
+
+    caller_balance1 = web3.eth.get_balance(caller_address)
+
+    response['block'] = web3.eth.blockNumber
+    response['balance_before'] = caller_balance0
+    response['balance_after'] = caller_balance1
+    response['cost'] = caller_balance0 - caller_balance1
+    response['myblock'] = contract.functions.getMyBlock().call()
+
+    return response
 
 def generate_cells(cell4):
     cells = [0 for x in range(rows*cols)]
