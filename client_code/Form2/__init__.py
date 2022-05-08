@@ -4,6 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import anvil.js
 
 class Form2(Form2Template):
     def __init__(self, **properties):
@@ -16,6 +17,8 @@ class Form2(Form2Template):
         self.cell_height = 16
         self.board = [0 for x in range(self.cols*self.rows)]
         print('ll')
+        from anvil.js.window import ethereum
+        print(ethereum,ethereum.isConnected)
            
     def button_get_click(self, **event_args):
         """This method is called when the button is clicked"""
