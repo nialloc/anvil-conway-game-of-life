@@ -48,9 +48,10 @@ def get_data():
     print("cells ", cell4)
     return generate_cells(cell4)
 
+@anvil.server.callable
 def step():
     
-    private_key = '?????'
+    private_key = '?'
     print('private_key',private_key)
 
     acct = Account.from_key(private_key)

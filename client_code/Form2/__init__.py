@@ -17,8 +17,8 @@ class Form2(Form2Template):
         self.cell_height = 16
         self.board = [0 for x in range(self.cols*self.rows)]
         print('ll')
-        from anvil.js.window import ethereum
-        print(ethereum,ethereum.isConnected)
+#         from anvil.js.window import ethereum
+#         print(ethereum,ethereum.isConnected)
            
     def button_get_click(self, **event_args):
         """This method is called when the button is clicked"""
@@ -46,5 +46,11 @@ class Form2(Form2Template):
 #                 c.fill_style("#FFFFFF")
                 c.clear_rect(x, y, width, height)
         
+
+    def button_step_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        x = anvil.server.call('step')
+        print(x)
+
 
 
