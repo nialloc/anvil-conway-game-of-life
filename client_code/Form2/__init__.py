@@ -52,5 +52,12 @@ class Form2(Form2Template):
         x = anvil.server.call('step')
         print(x)
 
+    def form_show(self, **event_args):
+        """This method is called when the column panel is shown on the screen"""
+        data = anvil.server.call('get_data')
+        self.board = data
+        self.show_board()
+
+
 
 
