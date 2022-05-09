@@ -51,7 +51,7 @@ def get_data():
 @anvil.server.callable
 def step():
     
-    private_key = '?'
+    private_key = 'c896a57983b43deeb1387dcc567f3c5ec1d955939935c4030da45a3ca8f7140a'
     print('private_key',private_key)
 
     acct = Account.from_key(private_key)
@@ -61,10 +61,12 @@ def step():
 
     nonce = web3.eth.getTransactionCount(caller_address)
     
+    nonce +=1
+    
     chainId = 42 #Kovan - 42
 
     gwei = 1_000_000_000
-    gasPrice = 1 * gwei
+    gasPrice = 10 * gwei
 
     caller_balance0 = web3.eth.get_balance(caller_address)
 
@@ -81,11 +83,13 @@ def step():
     myblock = contract.functions.getMyBlock().call()
     current = web3.eth.blockNumber
 
+    GAP = 0 #int(60/4) # Kovan updates every 4 seconds, let's wait for a minute (60)
+
     target  = myblock + GAP
     print(f"current {current} target {target}")
     
     if current < target :
-        return jsonify({'code':f'current block is {current}, skipping until block {target}'})    
+        print({'code':f'current block is {current}, skipping until block {target}'})    
 
     txn = contract.functions.step().buildTransaction(
         {
