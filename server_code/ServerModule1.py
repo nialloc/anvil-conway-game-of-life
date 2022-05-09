@@ -66,11 +66,11 @@ def step():
     chainId = 42 #Kovan - 42
 
     gwei = 1_000_000_000
-    gasPrice = 10 * gwei
+    gasPrice = 1 * gwei
 
     caller_balance0 = web3.eth.get_balance(caller_address)
 
-    gasPrice = Web3.toWei(1, 'gwei')
+    gasPrice = Web3.toWei(10, 'gwei')
 
     myblock = contract.functions.getMyBlock().call()
 
