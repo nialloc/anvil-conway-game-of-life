@@ -20,7 +20,7 @@ class Form1(Form1Template):
         self.cell_width = 16
         self.cell_height = 16
         self.reset_board()
-        self.show_board()
+        
         
     def show_board(self):
         c = self.canvas_1
@@ -117,6 +117,11 @@ class Form1(Form1Template):
     def button_start_click(self, **event_args):
         """This method is called when the button is clicked"""
         self.timer_1.interval = 0.1
+
+    def form_show(self, **event_args):
+        """This method is called when the HTML panel is shown on the screen"""
+        self.show_board()
+
 
 
 
