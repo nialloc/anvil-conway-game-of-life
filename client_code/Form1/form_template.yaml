@@ -45,6 +45,10 @@ components:
     properties: {height: 0}
     name: spacer_1
     layout_properties: {grid_position: 'UULEIX,PIBMOD'}
+  - type: Label
+    properties: {}
+    name: label_stepCount
+    layout_properties: {grid_position: 'TZRCIM,HASFSE'}
   - type: Canvas
     properties: {role: null, height: 620, tooltip: '', border: '', foreground: '',
       visible: true, spacing_above: small, spacing_below: small, background: ''}

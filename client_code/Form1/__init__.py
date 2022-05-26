@@ -3,10 +3,10 @@ from anvil import *
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
 import anvil.server
 
 import random
+import time
 
 class Form1(Form1Template):
 
@@ -21,10 +21,20 @@ class Form1(Form1Template):
         self.cell_height = 16
         self.reset_board()
         
+        self.stepCount = 0 # how many steps have we done?
+        self.timeTaken = 0 # time in milliseconds taken per step
+        self.totalTime = 0 # total time taken
+        
         
     def show_board(self):
         c = self.canvas_1
 #         c.background = "#FFF0F0"
+
+        av = 0
+        if self.stepCount not equal to  0 ;
+            av = self.totalTime / self.stepCount
+            
+        self.label_stepCount.text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
 
         for index,value in enumerate(self.board):
 
@@ -57,15 +67,21 @@ class Form1(Form1Template):
         self.board = [int(round(random.random())) for x in range(self.rows*self.cols)]
         self.timer_1.interval = 0
         
+        
+    def get(self,pos):
+        pos = pos % len(self.board)
+        return self.board[pos]
+        
+    def set(self,pos,value):
+        self.new_board[pos] = value
+            
     def step_board(self):
-        new_board = [0 for x in range(len(self.board))]
         
-        def get(pos):
-            pos = pos % len(self.board)
-            return self.board[pos]
+        t0 = time.time()
         
-        def set(pos,value):
-            new_board[pos] = value
+        self.new_board = [0 for x in range(len(self.board))]
+        
+        self.stepCount += 1
         
         for pos,value in enumerate(self.board):
 
@@ -81,6 +97,8 @@ class Form1(Form1Template):
             cols = self.cols
             rows = self.rows
 
+            get = self.get
+            set = self.set
             # count_neighbours - count the number of cells that are direct neighbours   
             count += get(pos - cols - 1);  #(row-1,col-1); 
             count += get(pos - cols);      #(row-1,col  );
@@ -103,7 +121,10 @@ class Form1(Form1Template):
                 if (count == 3) :
                     set(pos,1);
                 
-        self.board = new_board    
+        self.board = self.new_board    
+        t1 = time.time()
+        
+        self.timeTaken = int(1000*(t1-t0))  # time in milliseconds
 
     def timer_1_tick(self, **event_args):
         """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
