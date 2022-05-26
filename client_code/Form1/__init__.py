@@ -21,9 +21,7 @@ class Form1(Form1Template):
         self.cell_height = 16
         self.reset_board()
         
-        self.stepCount = 0 # how many steps have we done?
-        self.timeTaken = 0 # time in milliseconds taken per step
-        self.totalTime = 0 # total time taken
+
         
         
     def show_board(self):
@@ -66,6 +64,10 @@ class Form1(Form1Template):
     def reset_board(self):
         self.board = [int(round(random.random())) for x in range(self.rows*self.cols)]
         self.timer_1.interval = 0
+        
+        self.stepCount = 0 # how many steps have we done?
+        self.timeTaken = 0 # time in milliseconds taken per step
+        self.totalTime = 0 # total time taken
         
         
     def get(self,pos):
