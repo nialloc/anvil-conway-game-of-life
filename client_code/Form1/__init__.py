@@ -31,8 +31,8 @@ class Form1(Form1Template):
 #         c.background = "#FFF0F0"
 
         av = 0
-        if self.stepCount not equal to  0 ;
-            av = self.totalTime / self.stepCount
+        if self.stepCount !=  0 :
+            av = int(self.totalTime / self.stepCount)
             
         self.label_stepCount.text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
 
@@ -125,6 +125,8 @@ class Form1(Form1Template):
         t1 = time.time()
         
         self.timeTaken = int(1000*(t1-t0))  # time in milliseconds
+        self.totalTime += self.timeTaken
+        
 
     def timer_1_tick(self, **event_args):
         """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
