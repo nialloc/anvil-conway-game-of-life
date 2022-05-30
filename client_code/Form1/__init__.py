@@ -32,8 +32,11 @@ class Form1(Form1Template):
         if self.stepCount !=  0 :
             av = int(self.totalTime / self.stepCount)
             
-        self.label_stepCount.text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
-
+        text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
+        count = 0
+        for pos in range(self.rows*self.cols):
+            count += get(pos)
+        self.label_stepCount.text = text + f"{count/self.rows*self.cols}"
         for index,value in enumerate(self.board):
 
             col = int(index % self.cols)
