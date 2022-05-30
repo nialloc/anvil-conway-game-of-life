@@ -20,9 +20,7 @@ class Form1(Form1Template):
         self.cell_width = 16
         self.cell_height = 16
         self.reset_board()
-        
-
-        
+       
         
     def show_board(self):
         c = self.canvas_1
@@ -33,10 +31,7 @@ class Form1(Form1Template):
             av = int(self.totalTime / self.stepCount)
             
         text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
-        count = 0
-        for pos in range(self.rows*self.cols):
-            count += get(pos)
-        self.label_stepCount.text = text + f"{count/self.rows*self.cols}"
+        self.label_stepCount.text = text
         for index,value in enumerate(self.board):
 
             col = int(index % self.cols)
