@@ -1,11 +1,8 @@
 unique_ids:
   forms:
     Form1: VXQO2AYXGJEQSFCPRHPDESI3POVCBYOE
-    Form2: '1651843208628303465664420.4812'
   modules: {}
-  server_modules:
-    ServerModule1: '1651858457308987479232464.5276'
+  server_modules: {}
   assets:
-    GameOfLife.json: '1651879486971315170978030.5945'
     standard-page.html: IUSNKMHRKZPDD4DVPHHWPMNZDE3SB5E2
     theme.css: X3BAVYUYFADFQ2QRFMPZLLWG7N642ZRY

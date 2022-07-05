@@ -20,6 +20,8 @@ class Form1(Form1Template):
         self.cell_width = 16
         self.cell_height = 16
         self.reset_board()
+        
+        self.button_start.
        
         
     def show_board(self):
@@ -54,13 +56,10 @@ class Form1(Form1Template):
                 c.clear_rect(x, y, width, height)
     
     def button_step_click(self, **event_args):
-        """This method is called when the button is clicked"""
-                
         self.step_board()
         self.show_board()
 
     def button_reset_click(self, **event_args):
-        """This method is called when the button is clicked"""
         self.reset_board()
         self.show_board()
         
@@ -93,10 +92,6 @@ class Form1(Form1Template):
             col = int(pos % self.cols)
             row = int(pos / self.cols)
         
-            # ignore the edges for the mo
-#             if col == 0 or col == self.cols-1 or row == 0 or row == self.rows-1:
-#                 continue
-                
             count = 0
             
             cols = self.cols
@@ -134,20 +129,17 @@ class Form1(Form1Template):
         
 
     def timer_1_tick(self, **event_args):
-        """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
         self.step_board()
         self.show_board()
 
     def button_stop_click(self, **event_args):
-        """This method is called when the button is clicked"""
+
         self.timer_1.interval = 0
 
     def button_start_click(self, **event_args):
-        """This method is called when the button is clicked"""
         self.timer_1.interval = 0.1
 
     def form_show(self, **event_args):
-        """This method is called when the HTML panel is shown on the screen"""
         self.show_board()
 
 

@@ -11,9 +11,7 @@ allow_embedding: false
 name: Conway
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
 startup_form: null
-native_deps: {head_html: "<script type=\"module\">\n    //import { ethers } from \"\
-    https://cdn.ethers.io/lib/ethers-5.2.esm.min.js\";\n    // Your code here...\n\
-    </script>"}
+native_deps: {head_html: ''}
 secrets:
   HTTPProvider:
     value: {? '' : +meNlqPObWPlTgzS51K5bqjti89bUKurhJSBQ6MCICaqAnYq5a4fk3E+zEDhWthOt79T2qL/wj6RbRbc1jPJDtlnk7d6VAzNpk9K2FdL8jLLDIyyhSC3UMZIOGHbAPkr}
