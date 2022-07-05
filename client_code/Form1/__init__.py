@@ -21,7 +21,13 @@ class Form1(Form1Template):
         self.cell_height = 16
         self.reset_board()
         
-        self.button_start.
+        button_width = 100
+        self.button_reset.width = button_width
+        self.button_start.width = button_width
+        self.button_stop.width = button_width
+        self.button_step.width = button_width
+        
+
        
         
     def show_board(self):
@@ -32,7 +38,7 @@ class Form1(Form1Template):
         if self.stepCount !=  0 :
             av = int(self.totalTime / self.stepCount)
             
-        Debug = False
+        Debug = True
         if Debug:
             text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
         else:
