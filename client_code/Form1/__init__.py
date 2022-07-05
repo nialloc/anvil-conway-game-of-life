@@ -30,7 +30,12 @@ class Form1(Form1Template):
         if self.stepCount !=  0 :
             av = int(self.totalTime / self.stepCount)
             
-        text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
+        Debug = False
+        if Debug:
+            text = f"Step Count: {self.stepCount} time taken: {self.timeTaken} ms Average: {av}"
+        else:
+            text = f"Step Count: {self.stepCount}"
+        
         self.label_stepCount.text = text
         for index,value in enumerate(self.board):
 
