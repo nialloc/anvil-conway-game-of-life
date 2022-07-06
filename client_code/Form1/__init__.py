@@ -148,6 +148,19 @@ class Form1(Form1Template):
     def form_show(self, **event_args):
         self.show_board()
 
-
-
+    def canvas_1_mouse_down(self, x, y, button, **event_args):
+        #print(x,y,button, event_args)
+        row = int(y / self.cell_width)
+        col = int(x / self.cell_height)
+        
+        # ignore off board clicks
+        if row < 0 or row >= self.rows :
+            return
+        if col < 0 or col >= self.cols:
+            return
+        pos = col + row * self.cols
+        # flip it
+        self.board[pos] = not self.board[pos]
+        #print(f"row {row} col {col} pos {pos} cell {self.board[pos]}")
+        self.show_board()
 
