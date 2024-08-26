@@ -17,8 +17,8 @@ class Form1(Form1Template):
         # Any code you write here will run when the form opens.
         self.rows = 32
         self.cols = 32
-        self.cell_width = 16
-        self.cell_height = 16
+        self.cell_width = 12
+        self.cell_height = 12
         self.reset_board()
         
         button_width = 100
